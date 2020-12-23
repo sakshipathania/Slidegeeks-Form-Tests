@@ -25,7 +25,7 @@ public class Setup{
 		public static String local_FFbrowser;
 		public String Button_Click_Time;
 		public String message_write_time;
-		public String TestFile = "C:\\Users\\slide53\\eclipse-workspace\\SlideTeamWebsiteFormsAuto\\write.txt";
+		public String TestFile = "C:\\Users\\slide53\\eclipse-workspace\\SlidegeeksWebsiteFormsAuto\\write.txt";
 		
 		@BeforeClass
 		public static void before_Class() throws Exception {
