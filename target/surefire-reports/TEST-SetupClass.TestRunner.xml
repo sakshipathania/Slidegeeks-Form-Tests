@@ -5,7 +5,7 @@
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jre1.8.0_211\bin"/>
     <property name="java.vm.version" value="25.211-b12"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="C:\Users\slide53\eclipse-workspace\SlideTeamWebsiteFormsAuto"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\slide53\eclipse-workspace\SlidegeeksWebsiteFormsAuto"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=";"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\slide53\eclipse-workspace\SlideTeamWebsiteFormsAuto"/>
+    <property name="user.dir" value="C:\Users\slide53\eclipse-workspace\SlidegeeksWebsiteFormsAuto"/>
     <property name="java.runtime.version" value="1.8.0_211-b12"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jre1.8.0_211\lib\endorsed"/>
@@ -76,20 +76,6 @@
   <testcase classname="Scenario: Test Contacts us form" name="Then user enter captcha comment" time="0"/>
   <testcase classname="Scenario: Test Contacts us form" name="Then user click on submit button" time="0"/>
   <testcase classname="Scenario: Test Contacts us form" name="Scenario: Test Contacts us form" time="0.001"/>
-  <testcase classname="Scenario: Test contact us to get started form" name="Given user is already on contact us to get started form" time="0"/>
-  <testcase classname="Scenario: Test contact us to get started form" name="Then user enter name on gs form" time="0"/>
-  <testcase classname="Scenario: Test contact us to get started form" name="Then user enter email on gs form" time="0"/>
-  <testcase classname="Scenario: Test contact us to get started form" name="Then user enter phone number on gs form" time="0"/>
-  <testcase classname="Scenario: Test contact us to get started form" name="Then user enter message on gs form" time="0"/>
-  <testcase classname="Scenario: Test contact us to get started form" name="Then user click on submit button on gs form" time="0"/>
-  <testcase classname="Scenario: Test contact us to get started form" name="Scenario: Test contact us to get started form" time="0"/>
-  <testcase classname="Scenario: Test Design Services form" name="Given user is already on design services page" time="0"/>
-  <testcase classname="Scenario: Test Design Services form" name="Then user enter name on design services form" time="0"/>
-  <testcase classname="Scenario: Test Design Services form" name="Then user enter email on design services form" time="0"/>
-  <testcase classname="Scenario: Test Design Services form" name="Then user enter project description on design services form" time="0"/>
-  <testcase classname="Scenario: Test Design Services form" name="Then user attach a file on design services form" time="0"/>
-  <testcase classname="Scenario: Test Design Services form" name="Then user submit the design services form" time="0"/>
-  <testcase classname="Scenario: Test Design Services form" name="Scenario: Test Design Services form" time="0"/>
   <testcase classname="Scenario: Test Design Services form" name="Given user is already on questionnaire form page" time="0"/>
   <testcase classname="Scenario: Test Design Services form" name="Then user enter name on questionnaire form" time="0"/>
   <testcase classname="Scenario: Test Design Services form" name="Then user enter email on questionnaire form" time="0"/>
