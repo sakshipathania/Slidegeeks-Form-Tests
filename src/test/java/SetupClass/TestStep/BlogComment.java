@@ -31,8 +31,11 @@ public class BlogComment extends Setup {
 	
 	@Given("^user is already on blog form$")
 	public void user_is_already_on_blog_form() throws Throwable {
-		
-         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get(AppURL);
+	driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+	log.info("It's opening the website URL");
+	Thread.sleep(1000);
+        driver.get("https://wwww.slidegeeks.com");
 	
 		Thread.sleep(2000); 
 		driver.get("https://www.slidegeeks.com/blog/how-to-design-cross-linked-chains-in-powerpoint/");
