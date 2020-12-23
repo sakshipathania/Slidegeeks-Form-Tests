@@ -31,14 +31,14 @@ public class Questionnaire extends Setup {
 	@Given("^user is already on questionnaire form page$")
 	public void user_is_already_on_questionnaire_form_page() throws Throwable {
 		Thread.sleep(1000);
-		driver.get("https://www.slideteam.net/questionnaire/");
+		driver.get("https://www.slidegeeks.com/design-services-form");
 		Thread.sleep(1000);
 	}
 
 	@Then("^user enter name on questionnaire form$")
 	public void user_enter_name_on_questionnaire_form() throws Throwable {
 		Thread.sleep(1000);
-		driver.findElement(By.name("name")).sendKeys("SlideTeam Testing");
+		driver.findElement(By.name("name")).sendKeys("SlideGeeks Testing");
 		Thread.sleep(1000);
 	}
 
@@ -59,7 +59,7 @@ public class Questionnaire extends Setup {
 	@Then("^user enter number of slides on questionnaire form$")
 	public void user_enter_number_of_slides_on_questionnaire_form() throws Throwable {
 		Thread.sleep(1000);
-		driver.findElement(By.name("number_of_slides")).sendKeys("8");
+		driver.findElement(By.id("num_slides")).sendKeys("8");
 		Thread.sleep(1000);
 	}
 
@@ -71,7 +71,7 @@ public class Questionnaire extends Setup {
 	    Date date = new Date(System.currentTimeMillis());  
 	    message_write_time=formatter.format(date);
 	    System.out.println(Button_Click_Time);  
-		driver.findElement(By.cssSelector("div.user-detail:nth-child(4) > ul:nth-child(2) > li:nth-child(2) > textarea:nth-child(2)")).sendKeys("This is a text message for QA purposes sent by an automated program. Please ignore."+ "\n"+""+""+
+		driver.findElement(By.cssSelector("#questionnariesForm > div.form-bottom-field > div.form-row > div:nth-child(2) > div > textarea")).sendKeys("This is a text message for QA purposes sent by an automated program. Please ignore."+ "\n"+""+""+
 								"Page URL is:-> https://www.slideteam.net/powerpoint_presentation_design_services"+"\n"+""+""+
 								"Current Time is:->"+message_write_time);	
 		Thread.sleep(1000);
@@ -91,10 +91,18 @@ public class Questionnaire extends Setup {
 		r.keyRelease(KeyEvent.VK_ESCAPE);
 	}
 
+	@Then("User enters Captcha")
+	public void User_enters_Captcha() throws Throwable {
+	WebElement captcha = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#captchtext")));
+		 Thread.sleep(3000);
+		captcha.sendKeys("Y3Tt6bfwI");
+		 Thread.sleep(3000);
+	}
+	
 	@Then("^user click on submit on questionnaire form$")
 	public void user_click_on_submit_on_questionnaire_form() throws Throwable {
 		Thread.sleep(1000);
-		driver.findElement(By.id("finalSubmit")).submit();
+		driver.findElement(By.id("save")).submit();
 		Thread.sleep(1000);
 		System.out.print("form is submitted at:->> ");
 	    //System.out.println(System.currentTimeMillis()/1000);
