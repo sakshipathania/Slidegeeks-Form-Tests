@@ -8,4 +8,3 @@ Then user enter mobile number on rs form
 Then user enter comment on rs form
 Then user enter captcha on rs form
 Then user click on submit button on rs form
-
