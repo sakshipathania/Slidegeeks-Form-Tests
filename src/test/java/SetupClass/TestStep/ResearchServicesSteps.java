@@ -12,6 +12,9 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
 import java.awt.Robot; 
 import java.awt.event.KeyEvent;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import SetupClass.Setup;
 import cucumber.api.java.en.Given;
