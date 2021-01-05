@@ -94,9 +94,11 @@ public class ResearchServicesSteps extends Setup {
 	public void user_enter_mobile_number_on_rs_form()throws Throwable  {
 		Thread.sleep(3000);
 		try {
-		WebElement Mobile = driver.findElement(By.id("phone")).sendKeys("5678912345");
+		WebElement Mobile = driver.findElement(By.id("phone"));
 		js.executeScript("arguments[0].scrollIntoView();",Mobile);	
 		Thread.sleep(3000);
+			Mobile.sendKeys("5678912345");
+				Thread.sleep(3000);
 	} catch  (NoSuchElementException popup) {
 	  }
 		
