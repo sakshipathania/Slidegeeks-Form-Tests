@@ -20,6 +20,9 @@ import cucumber.api.java.en.Then;
 
 public class ResearchServicesSteps extends Setup {
 
+	WebDriverWait wait = new WebDriverWait(driver,20);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+	
 	@Given("^chat popup$")
         public void chat_pop_up() throws InterruptedException
         {
