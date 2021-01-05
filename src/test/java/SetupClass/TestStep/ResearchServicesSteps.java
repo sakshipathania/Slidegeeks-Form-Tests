@@ -88,7 +88,8 @@ public class ResearchServicesSteps extends Setup {
 	public void user_enter_mobile_number_on_rs_form()throws Throwable  {
 		Thread.sleep(3000);
 		try {
-		driver.findElement(By.id("phone")).sendKeys("5678912345");
+		WebElement Mobile = driver.findElement(By.id("phone")).sendKeys("5678912345");
+		js.executeScript("arguments[0].scrollIntoView();",Mobile);	
 		Thread.sleep(3000);
 	} catch  (NoSuchElementException popup) {
 	  }
@@ -135,7 +136,9 @@ public class ResearchServicesSteps extends Setup {
 		r.keyRelease(KeyEvent.VK_ESCAPE);
 		
 		try {
-		driver.findElement(By.id("submit_businessresearch_form")).submit();
+		WebElement sub_mit = driver.findElement(By.id("submit_businessresearch_form"));
+				js.executeScript("arguments[0].scrollIntoView();",sub_mit);
+			sub_mit.submit();
 		Thread.sleep(3000);
 		
 	} catch (NoSuchElementException popup) {
