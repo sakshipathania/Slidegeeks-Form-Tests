@@ -52,7 +52,7 @@ public class ResearchServicesSteps extends Setup {
 	
 		Thread.sleep(3000);
 		try {
-			driver.get("https://www.slideteam.net/powerpoint_presentation_design_services/business_research_services");
+			driver.get("https://www.slidegeeks.com/business-research-services");
 		//driver.findElement(By.cssSelector("div.links:nth-child(6) > ul:nth-child(2) > li:nth-child(10) > a:nth-child(1)"));
 		
 		//*Submit.click();
@@ -66,7 +66,7 @@ public class ResearchServicesSteps extends Setup {
 	public void user_enter_name_on_rs_form()  throws Throwable {
 		Thread.sleep(3000);
 		try {
-		driver.findElement(By.id("name")).sendKeys("SlideTeam Testing");
+		driver.findElement(By.id("name")).sendKeys("SlideGeeks Testing");
 		Thread.sleep(3000);
 	} catch (NoSuchElementException popup) {
 	  }
@@ -77,7 +77,7 @@ public class ResearchServicesSteps extends Setup {
 	public void user_enter_email_on_rs_form() throws Throwable {
 		Thread.sleep(3000);
 		try {
-		driver.findElement(By.id("form_email")).sendKeys("slidetech.qa@gmail.com");
+		driver.findElement(By.id("email")).sendKeys("slidetech.qa@gmail.com");
 		Thread.sleep(3000);
 	} catch (NoSuchElementException popup) {
 	  }
@@ -88,7 +88,7 @@ public class ResearchServicesSteps extends Setup {
 	public void user_enter_mobile_number_on_rs_form()throws Throwable  {
 		Thread.sleep(3000);
 		try {
-		driver.findElement(By.id("telephone")).sendKeys("5678912345");
+		driver.findElement(By.id("phone")).sendKeys("5678912345");
 		Thread.sleep(3000);
 	} catch  (NoSuchElementException popup) {
 	  }
@@ -104,7 +104,7 @@ public class ResearchServicesSteps extends Setup {
 	    Date date = new Date(System.currentTimeMillis());  
 	    message_write_time=formatter.format(date);
 	    System.out.println(Button_Click_Time);  
-		driver.findElement(By.id("comment")).sendKeys("This is a text message for QA purposes sent by an automated program. Please ignore."+ "\n"+
+		driver.findElement(By.id("message")).sendKeys("This is a text message for QA purposes sent by an automated program. Please ignore."+ "\n"+
 								"Page URL is:-> https://www.slideteam.net/powerpoint_presentation_design_services"+"\n"+ 
 								"Current Time is:->"+message_write_time);	
 		Thread.sleep(3000);
@@ -117,7 +117,7 @@ public class ResearchServicesSteps extends Setup {
 	public void user_enter_captcha_on_rs_form() throws Throwable {
 		Thread.sleep(3000);
 		try {
-		driver.findElement(By.id("captcha_business_research_services_captcha")).sendKeys("Aj7W2mtf9namwf55");
+		driver.findElement(By.id("captchtext")).sendKeys("Y3Tt6bfwI");
 		Thread.sleep(3000);
 	} catch (NoSuchElementException popup) {
 	  }
@@ -128,14 +128,14 @@ public class ResearchServicesSteps extends Setup {
 	public void user_click_on_submit_button_on_rs_form() throws Throwable {
 		
 		Thread.sleep(3000);
-		driver.findElement(By.xpath("//*[@id='mulitplefileuploader']/div[1]/div/label/span")).click();
+		driver.findElement(By.id("researchFile")).click();
 		
 		Robot r = new Robot(); 
 		r.keyPress(KeyEvent.VK_ESCAPE); 
 		r.keyRelease(KeyEvent.VK_ESCAPE);
 		
 		try {
-		driver.findElement(By.id("finalSubmit")).submit();
+		driver.findElement(By.id("submit_businessresearch_form")).submit();
 		Thread.sleep(3000);
 		
 	} catch (NoSuchElementException popup) {
