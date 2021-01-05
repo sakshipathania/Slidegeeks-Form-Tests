@@ -8,6 +8,5 @@ Then user enter phone on questionnaire form
 Then user enter number of slides on questionnaire form
 Then user enter  Style Requirement on questionnaire form
 Then User click on Upload button
-Then user enter captcha on q form
+Then User enters Captcha
 Then user click on submit on questionnaire form
-
