@@ -33,7 +33,7 @@ public class Contact_us_steps extends Setup {
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 		Thread.sleep(1000);
-		driver.get("https://www.slideteam.net/contacts");
+		driver.get("https://www.slidegeeks.com/contact");
 		try {
 			WebElement iframe = driver.findElement(By.id("livechat-full-view"));
 			if(iframe.isDisplayed()) {
@@ -69,26 +69,28 @@ public class Contact_us_steps extends Setup {
 		Thread.sleep(1000);
 	}
 
-	@Then("^user enter name$")
-	public void user_enter_name() throws Throwable {
-		Thread.sleep(1000);
-		driver.findElement(By.id("name")).sendKeys("SlideTeam Testing");
-		Thread.sleep(1000);
-	    
-	}
+	
 
 	@Then("^user enter email$")
 	public void user_enter_email()throws Throwable
 	{
 		Thread.sleep(1000);
-		driver.findElement(By.id("email")).sendKeys("slidetech.qa@gmail.com");
+		driver.findElement(By.id("inputEmail")).sendKeys("slidetech.qa@gmail.com");
 		Thread.sleep(1000);
+	}
+	
+	@Then("^user enter name$")
+	public void user_enter_name() throws Throwable {
+		Thread.sleep(1000);
+		driver.findElement(By.id("inputName")).sendKeys("SlideGeeks Testing");
+		Thread.sleep(1000);
+	    
 	}
 	
 	@Then("^user enter mobile number$")
 	public void user_enter_mobile_number()  throws Throwable {
 		Thread.sleep(1000);
-		driver.findElement(By.id("telephone")).sendKeys("877566756657");
+		driver.findElement(By.id("inputPhone")).sendKeys("877566756657");
 		Thread.sleep(1000);
 	}
 
@@ -99,7 +101,7 @@ public class Contact_us_steps extends Setup {
 	    Date date = new Date(System.currentTimeMillis());  
 	    message_write_time=formatter.format(date);
 	    System.out.println(Button_Click_Time);  
-		driver.findElement(By.id("comment")).sendKeys("This is a text message for QA purposes sent by an automated program. Please ignore."+ "\n"+""+""+
+		driver.findElement(By.id("inputMessage")).sendKeys("This is a text message for QA purposes sent by an automated program. Please ignore."+ "\n"+""+""+
 								"Page URL is:-> https://www.slideteam.net/contacts"+"\n"+""+""+ 
 								"Current Time is:->"+message_write_time);		
 		Thread.sleep(2000);
@@ -110,14 +112,14 @@ public class Contact_us_steps extends Setup {
 Thread.sleep(3000);
 		
 		
-		driver.findElement(By.xpath("//input[@id='captcha_contact_us']")).sendKeys("Aj7W2mtf9namwf55");
+		driver.findElement(By.xpath("//input[@id='captchtext']")).sendKeys("Y3Tt6bfwI");
 	    Thread.sleep(1000);
 	}
 	
 	@Then("^user click on submit button$")
 	public void user_click_on_submit_button()throws Throwable  {
 		Thread.sleep(1000);
-		driver.findElement(By.cssSelector("button.btn > span:nth-child(1) > span:nth-child(1)")).click();
+		driver.findElement(By.id("submit_contact_form")).click();
 		Thread.sleep(1000);
 		System.out.print("form is submitted at:->> ");
 	    //System.out.println(System.currentTimeMillis()/1000);
