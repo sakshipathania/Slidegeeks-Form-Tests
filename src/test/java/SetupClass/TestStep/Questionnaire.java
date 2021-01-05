@@ -72,7 +72,7 @@ public class Questionnaire extends Setup {
 	    message_write_time=formatter.format(date);
 	    System.out.println(Button_Click_Time);  
 		driver.findElement(By.cssSelector("#questionnariesForm > div.form-bottom-field > div.form-row > div:nth-child(2) > div > textarea")).sendKeys("This is a text message for QA purposes sent by an automated program. Please ignore."+ "\n"+""+""+
-								"Page URL is:-> https://www.slideteam.net/powerpoint_presentation_design_services"+"\n"+""+""+
+								"Page URL is:-> https://www.slidegeeks.com/powerpoint_presentation_design_services"+"\n"+""+""+
 								"Current Time is:->"+message_write_time);	
 		Thread.sleep(1000);
 	}
@@ -80,7 +80,7 @@ public class Questionnaire extends Setup {
 	@Then("^User click on Upload button")
 	public void User_click_on_Upload_button() throws Throwable {
 		Thread.sleep(6000);
-	        WebElement Upload= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Upload']")));
+	        WebElement Upload= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[3]/div/section[2]/div/div/form/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/input")));
 		Thread.sleep(2000);
 		Upload.click();
 		Thread.sleep(3000);
