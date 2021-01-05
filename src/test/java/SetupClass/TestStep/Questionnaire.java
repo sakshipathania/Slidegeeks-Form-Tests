@@ -80,7 +80,7 @@ public class Questionnaire extends Setup {
 	@Then("^User click on Upload button")
 	public void User_click_on_Upload_button() throws Throwable {
 		Thread.sleep(6000);
-	        WebElement Upload= driver.findElemen(By.name("upload"));
+	        WebElement Upload= driver.findElement(By.name("upload"));
 		Thread.sleep(2000);
 		Upload.click();
 		Thread.sleep(3000);
