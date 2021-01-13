@@ -35,7 +35,7 @@ public class BlogComment extends Setup {
 	//driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 	//log.info("It's opening the website URL");
 	//Thread.sleep(1000);
-        //driver.get("https://wwww.slidegeeks.com/");
+        driver.get("https://www.slidegeeks.com/");
 	
 		//Thread.sleep(2000); 
 		driver.get("https://www.slidegeeks.com/blog/");
