@@ -38,7 +38,7 @@ public class BlogComment extends Setup {
         //driver.get("https://wwww.slidegeeks.com/");
 	
 		//Thread.sleep(2000); 
-		driver.get("https://www.slidegeeks.com/blog/how-to-design-cross-linked-chains-in-powerpoint/");
+		driver.get("https://www.slidegeeks.com/blog/");
 		Thread.sleep(3000);
 		driver.manage().deleteAllCookies();
 		   Thread.sleep(20000);
