@@ -48,6 +48,8 @@ public class BlogComment extends Setup {
 	
 	@Then("^user enter comment on blog form$")
 	public void user_enter_comment_on_blog_form() throws Throwable {
+		
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		SimpleDateFormat formatter= new SimpleDateFormat("dd-MM-yyyy 'at' HH:mm:ss z"); 
 	    Date date = new Date(System.currentTimeMillis());  
