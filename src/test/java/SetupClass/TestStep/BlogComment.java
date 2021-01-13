@@ -46,6 +46,38 @@ public class BlogComment extends Setup {
 	}
 	
 	
+	@Then("^user Blog enter name$")
+	public void user_Blog_enter_name() throws Throwable {
+		Thread.sleep(1000);
+		driver.findElement(By.id("author")).sendKeys("SlideGeeks Testing");
+		Thread.sleep(1000);
+	    
+	}
+	
+	@Then("^user Blog enter email$")
+	public void user_Blog_enter_email()throws Throwable
+	{
+		Thread.sleep(1000);
+		driver.findElement(By.id("email")).sendKeys("slidetech.qa@gmail.com");
+		Thread.sleep(1000);
+	}
+	
+	@Then("^user enter Blog mobile number$")
+	public void user_enter_Blog_mobile_number()  throws Throwable {
+		Thread.sleep(1000);
+		driver.findElement(By.id("phone")).sendKeys("877566756657");
+		Thread.sleep(1000);
+	}
+	
+	@Then("^user enter captcha Blog comment$")
+	public void user_enter_captcha_Blog_comment() throws Throwable {
+          Thread.sleep(3000);
+		
+		
+		driver.findElement(By.xpath("//input[@id='captchtext']")).sendKeys("Y3Tt6bfwI");
+	    Thread.sleep(1000);
+	}
+	
 	@Then("^user enter comment on blog form$")
 	public void user_enter_comment_on_blog_form() throws Throwable {
 		
@@ -66,7 +98,7 @@ public class BlogComment extends Setup {
 	@Then("^user click on Submit button on blog form$")
 	public void user_click_on_Submit_button_on_blog_form()throws Throwable {
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//span[contains(.,'Leave a comment')]")).click();;
+		driver.findElement(By.id("submit")).click();;
 		Thread.sleep(3000);		
 		
 	}
