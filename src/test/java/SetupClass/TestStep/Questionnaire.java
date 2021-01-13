@@ -77,7 +77,7 @@ public class Questionnaire extends Setup {
 		Thread.sleep(1000);
 	}
 	
-	@Then("^User click on Upload button")
+	/*@Then("^User click on Upload button")
 	public void User_click_on_Upload_button() throws Throwable {
 		Thread.sleep(6000);
 	        WebElement Upload= driver.findElement(By.className("btn btn-primary"));
@@ -89,7 +89,7 @@ public class Questionnaire extends Setup {
 		Robot r = new Robot(); 
 		r.keyPress(KeyEvent.VK_ESCAPE); 
 		r.keyRelease(KeyEvent.VK_ESCAPE);
-	}
+	}*/
 
 	@Then("User enters Captcha")
 	public void User_enters_Captcha() throws Throwable {
