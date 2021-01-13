@@ -1,4 +1,4 @@
-@blog_comment_form
+@BlogComment
 Feature: Blog Comment Test
 Scenario: Test leave a comment on blog
 Given user is already on blog form
