@@ -137,7 +137,7 @@ public class ResearchServicesSteps extends Setup {
 	public void user_click_on_submit_button_on_rs_form() throws Throwable {
 		
 		Thread.sleep(3000);
-		WebElement upload = driver.findElement(By.cssSelector("#researchFile"));
+		/*WebElement upload = driver.findElement(By.cssSelector("#researchFile"));
 		Thread.sleep(3000);
 		upload.click();
 		Thread.sleep(3000);
@@ -145,14 +145,14 @@ public class ResearchServicesSteps extends Setup {
 		r.keyPress(KeyEvent.VK_ESCAPE); 
 		r.keyRelease(KeyEvent.VK_ESCAPE);
 		
-		try {
+		try {*/
 		WebElement sub_mit = driver.findElement(By.id("submit_businessresearch_form"));
 				js.executeScript("arguments[0].scrollIntoView();",sub_mit);
 			sub_mit.submit();
 		Thread.sleep(3000);
 		
-	} catch (NoSuchElementException popup) {
-	  }
+	//} catch (NoSuchElementException popup) {
+	//  }
 		
 	}
 		/*
