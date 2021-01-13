@@ -25,7 +25,7 @@ import cucumber.api.java.en.Then;
 
 public class BlogComment extends Setup {
 	
-	WebDriverWait wait = new WebDriverWait(driver,50);
+	WebDriverWait wait = new WebDriverWait(driver,500);
 	JavascriptExecutor js;
 	
 	
