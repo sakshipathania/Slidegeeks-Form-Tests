@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
-
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.NoSuchElementException;
@@ -17,7 +17,7 @@ import java.awt.event.KeyEvent;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import org.junit.Assert;
 import SetupClass.Setup;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -31,7 +31,20 @@ public class Questionnaire extends Setup {
 	@Given("^user is already on questionnaire form page$")
 	public void user_is_already_on_questionnaire_form_page() throws Throwable {
 		Thread.sleep(1000);
-		driver.get("https://www.slidegeeks.com/design-services-form");
+		//driver.get("https://www.slidegeeks.com/design-services-form");
+		Actions action = new Actions(driver);
+		WebElement ourServices = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@role='button']")));
+		action.moveToElement(ourServices)
+				.moveToElement(driver.findElement(
+						By.xpath("//a[contains(@class,'dropdown-item')][normalize-space()='Design Services']")))
+				.click().build().perform();
+
+		Thread.sleep(1000);
+		WebElement getStarted = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='btn blue-btn']")));
+		js.executeScript("arguments[0].scrollIntoView();", getStarted);
+		getStarted.click();
+
 		Thread.sleep(1000);
 	}
 
@@ -109,7 +122,17 @@ public class Questionnaire extends Setup {
 		SimpleDateFormat formatter= new SimpleDateFormat("dd-MM-yyyy 'at' HH:mm:ss z"); 
 	    Date date = new Date(System.currentTimeMillis());  
 	    String Button_Click_Time=formatter.format(date);
-	    System.out.println(Button_Click_Time);   
+	    System.out.println(Button_Click_Time); 
+		
+	//verify the message 
+		String verifySuccessfullMessage = wait
+				.until(ExpectedConditions.elementToBeClickable(
+						By.xpath("//h4[contains(text(),'Thank You for submitting your request to SlideGeek')]")))
+				.getText();
+		System.out.println("message = " + verifySuccessfullMessage);
+		Assert.assertTrue("custom services form is not submitted successfully", verifySuccessfullMessage
+				.contentEquals("Thank You for submitting your request to SlideGeeks Design Services."));
+		System.out.println("Custom services form is submitted successfully");
 	}
 
 	
