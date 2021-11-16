@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.concurrent.TimeUnit;
-
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -26,13 +26,14 @@ import cucumber.api.java.en.Then;
 public class Contact_us_steps extends Setup {
 	
 	// contact us form
+	WebDriverWait wait = new WebDriverWait(driver, 50);
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 	@Given("^user is already on contact us form$")
 	public void user_is_already_on_contact_us_form()  throws Throwable {
 		driver.get(AppURL);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
-		Thread.sleep(1000);
+		/*Thread.sleep(1000);
 		driver.get("https://www.slidegeeks.com/contact");
 		try {
 			WebElement iframe = driver.findElement(By.id("livechat-full-view"));
@@ -58,15 +59,18 @@ public class Contact_us_steps extends Setup {
 		}
 				catch(NoSuchElementException NCP) {
 					
-				}
-		
+				}*/
+		try {
 		Thread.sleep(3000);
-		//WebElement Contact= driver.findElement(By.cssSelector("div.links:nth-child(6) > ul:nth-child(2) > li:nth-child(4) > a:nth-child(1)"));
-		//js.executeScript("arguments[0].scrollIntoView();",Contact);
+		WebElement Contact= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Contact Us']")));
+		js.executeScript("arguments[0].scrollIntoView();",Contact);
 		
-		//Contact.click();
-		
+		Contact.click();
 		Thread.sleep(1000);
+			
+		catch(NoSuchElementException NCP) {
+					
+				}*/
 	}
 
 	
@@ -126,7 +130,17 @@ Thread.sleep(3000);
 		SimpleDateFormat formatter= new SimpleDateFormat("dd-MM-yyyy 'at' HH:mm:ss z"); 
 	    Date date = new Date(System.currentTimeMillis());  
 	    String Button_Click_Time=formatter.format(date);
-	    System.out.println(Button_Click_Time);  
+	    System.out.println(Button_Click_Time);
+           //verify the message 
+		
+		String verifySuccessfullMessage = wait
+				.until(ExpectedConditions.elementToBeClickable(
+						By.xpath("//strong[normalize-space()='Thank You! Your message has been sent.']")))
+				.getText();
+		System.out.println("message = " + verifySuccessfullMessage);
+		Assert.assertTrue("Contact_us form is not submitted successfully", verifySuccessfullMessage
+				.contentEquals("Thank You! Your message has been sent."));
+		System.out.println("Contact Us form is submitted successfully");
 	}
 	
 }
