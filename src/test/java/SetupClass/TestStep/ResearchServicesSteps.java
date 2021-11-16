@@ -5,17 +5,14 @@ import java.io.File;
 import java.io.FileWriter;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
-
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
 import java.awt.Robot; 
 import java.awt.event.KeyEvent;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
+import org.openqa.selenium.interactions.Actions;
 import SetupClass.Setup;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -23,9 +20,8 @@ import cucumber.api.java.en.Then;
 
 public class ResearchServicesSteps extends Setup {
 
-	WebDriverWait wait = new WebDriverWait(driver,20);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-	
+	WebDriverWait wait = new WebDriverWait(driver, 50);
+	JavascriptExecutor js = (JavascriptExecutor) driver;
 	@Given("^chat popup$")
         public void chat_pop_up() throws InterruptedException
         {
@@ -58,10 +54,13 @@ public class ResearchServicesSteps extends Setup {
 	
 		Thread.sleep(3000);
 		try {
-			driver.get("https://www.slidegeeks.com/business-research-services");
+			//driver.get("https://www.slidegeeks.com/business-research-services");
 		//driver.findElement(By.cssSelector("div.links:nth-child(6) > ul:nth-child(2) > li:nth-child(10) > a:nth-child(1)"));
 		
 		//*Submit.click();
+		Actions action = new Actions(driver);
+		WebElement ourServices = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@role='button']")));
+		action.moveToElement(ourServices).moveToElement(driver.findElement(By.xpath("//a[@class=' dropdown-item'][normalize-space()='Research Services']"))).click().build().perform();
 			Thread.sleep(3000);	
 	 }
           catch (NoSuchElementException popup) {
@@ -94,11 +93,8 @@ public class ResearchServicesSteps extends Setup {
 	public void user_enter_mobile_number_on_rs_form()throws Throwable  {
 		Thread.sleep(3000);
 		try {
-		WebElement Mobile = driver.findElement(By.id("phone"));
-		js.executeScript("arguments[0].scrollIntoView();",Mobile);	
+		driver.findElement(By.id("phone")).sendKeys("5678912345");
 		Thread.sleep(3000);
-			Mobile.sendKeys("5678912345");
-				Thread.sleep(3000);
 	} catch  (NoSuchElementException popup) {
 	  }
 		
@@ -137,22 +133,28 @@ public class ResearchServicesSteps extends Setup {
 	public void user_click_on_submit_button_on_rs_form() throws Throwable {
 		
 		Thread.sleep(3000);
-		/*WebElement upload = driver.findElement(By.cssSelector("#researchFile"));
-		Thread.sleep(3000);
-		upload.click();
-		Thread.sleep(3000);
+		driver.findElement(By.id("researchFile")).click();
+		
 		Robot r = new Robot(); 
 		r.keyPress(KeyEvent.VK_ESCAPE); 
 		r.keyRelease(KeyEvent.VK_ESCAPE);
 		
-		try {*/
-		WebElement sub_mit = driver.findElement(By.id("submit_businessresearch_form"));
-				js.executeScript("arguments[0].scrollIntoView();",sub_mit);
-			sub_mit.submit();
-		Thread.sleep(3000);
+		try {
+		driver.findElement(By.id("submit_businessresearch_form")).submit();
+		Thread.sleep(2000);
+			
+			//verify the messsage
+			String verifySuccessfullMessage = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+				"//div[@class='alert alert-success success-message d-block']//*[contains(text(),'Your query has been successfully submitted')]")))
+				.getText();
+		System.out.println("message = " + verifySuccessfullMessage);
+		Assert.assertTrue("Research form is not submitted successfully",
+				verifySuccessfullMessage.contentEquals("Your query has been successfully submitted"));
+		System.out.println("Research form is submitted successfully");
+			
 		
-	//} catch (NoSuchElementException popup) {
-	//  }
+	} catch (NoSuchElementException popup) {
+	  }
 		
 	}
 		/*
