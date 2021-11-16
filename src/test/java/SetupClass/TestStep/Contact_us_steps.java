@@ -67,7 +67,7 @@ public class Contact_us_steps extends Setup {
 		
 		Contact.click();
 		Thread.sleep(1000);
-			
+		}
 		catch(NoSuchElementException NCP) {
 					
 				}
@@ -112,8 +112,8 @@ public class Contact_us_steps extends Setup {
 	}
 
 	@Then("^user enter captcha comment$")
-	public void user_enter_captcha_comment() throws Throwable {
-Thread.sleep(3000);
+ 	public void user_enter_captcha_comment() throws Throwable {
+        Thread.sleep(3000);
 		
 		
 		driver.findElement(By.xpath("//input[@id='captchtext']")).sendKeys("Y3Tt6bfwI");
