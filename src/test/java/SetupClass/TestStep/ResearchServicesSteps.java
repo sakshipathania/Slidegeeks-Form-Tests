@@ -21,6 +21,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.junit.Assert;
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 
 public class ResearchServicesSteps extends Setup {
 
@@ -143,11 +146,34 @@ public class ResearchServicesSteps extends Setup {
 		js.executeScript("arguments[0].click();", attachFile);
 		
 		Robot r = new Robot(); 
-		r.keyPress(KeyEvent.VK_ESCAPE); 
-		r.keyRelease(KeyEvent.VK_ESCAPE);
+		
+		robot.setAutoDelay(1000);
+	//	StringSelection selection = new StringSelection("C:\\Users\\SLIDE QA\\circular_flow_of_process_4_stages_powerpoint_slides_templates (34).zip");
+		StringSelection selection = new StringSelection("	C:\\Users\\Administrator\\Pictures\\Screenshots\\Screenshot (1)");
+	
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
+		//robot.keyPress(KeyEvent.VK_ESCAPE);
+		
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_V);
+		
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		robot.keyRelease(KeyEvent.VK_V);
+		robot.setAutoDelay(1000);
+		
+		
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+		
+		Thread.sleep(2000);
+		
+		WebElement submit = wait
+				.until(ExpectedConditions.presenceOfElementLocated(By.id("submit_businessresearch_form")));
+		js.executeScript("arguments[0].click();", submit);
+
 		
 		try {
-		driver.findElement(By.id("submit_businessresearch_form")).submit();
+		//driver.findElement(By.id("submit_businessresearch_form")).submit();
 		Thread.sleep(2000);
 			
 			//verify the messsage
