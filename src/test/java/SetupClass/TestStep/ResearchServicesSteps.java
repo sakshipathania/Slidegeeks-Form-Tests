@@ -137,8 +137,10 @@ public class ResearchServicesSteps extends Setup {
 	@Then("^user click on submit button on rs form$")
 	public void user_click_on_submit_button_on_rs_form() throws Throwable {
 		
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//input[@id='researchFile']")).click();
+		WebElement attachFile = wait
+				.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@id='researchFile']")));
+		Thread.sleep(1000);
+		js.executeScript("arguments[0].click();", attachFile);
 		
 		Robot r = new Robot(); 
 		r.keyPress(KeyEvent.VK_ESCAPE); 
