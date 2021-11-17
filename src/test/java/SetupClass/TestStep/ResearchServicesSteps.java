@@ -138,7 +138,7 @@ public class ResearchServicesSteps extends Setup {
 	public void user_click_on_submit_button_on_rs_form() throws Throwable {
 		
 		Thread.sleep(3000);
-		driver.findElement(By.id("researchFile")).click();
+		driver.findElement(By.xpath("//input[@id='researchFile']")).click();
 		
 		Robot r = new Robot(); 
 		r.keyPress(KeyEvent.VK_ESCAPE); 
