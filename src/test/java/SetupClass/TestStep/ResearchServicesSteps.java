@@ -58,10 +58,11 @@ public class ResearchServicesSteps extends Setup {
 	
 		Thread.sleep(3000);
 		try {
-			//driver.get("https://www.slidegeeks.com/business-research-services");
+	         
 		//driver.findElement(By.cssSelector("div.links:nth-child(6) > ul:nth-child(2) > li:nth-child(10) > a:nth-child(1)"));
 		
 		//*Submit.click();
+		driver.get("https://www.slidegeeks.com/");
 		Actions action = new Actions(driver);
 		WebElement ourServices = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@role='button']")));
 		action.moveToElement(ourServices).moveToElement(driver.findElement(By.xpath("//a[@class=' dropdown-item'][normalize-space()='Research Services']"))).click().build().perform();
