@@ -101,6 +101,15 @@ public class BlogComment extends Setup {
 		driver.findElement(By.id("submit")).click();;
 		Thread.sleep(3000);		
 		
+		//verify the message here
+		String verifySuccessfullMessage = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+				"//strong[contains(text(),'Your comment is successfully submitted and sent fo')]")))
+				.getText();
+		System.out.println("message = " + verifySuccessfullMessage);
+		Assert.assertTrue("Your comment is not submitted successfully",
+				verifySuccessfullMessage.contentEquals("Your comment is successfully submitted and sent for moderation to admin."));
+		System.out.println("your comment is submitted successfully");
+		
 	}
 	
 	
