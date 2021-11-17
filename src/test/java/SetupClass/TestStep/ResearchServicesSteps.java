@@ -145,7 +145,7 @@ public class ResearchServicesSteps extends Setup {
 		Thread.sleep(1000);
 		js.executeScript("arguments[0].click();", attachFile);
 		
-		Robot r = new Robot(); 
+		Robot robot = new Robot(); 
 		
 		robot.setAutoDelay(1000);
 	//	StringSelection selection = new StringSelection("C:\\Users\\SLIDE QA\\circular_flow_of_process_4_stages_powerpoint_slides_templates (34).zip");
