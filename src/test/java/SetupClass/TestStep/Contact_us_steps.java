@@ -62,7 +62,7 @@ public class Contact_us_steps extends Setup {
 				}*/
 		try {
 		Thread.sleep(3000);
-		WebElement Contact= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Contact Us']")));
+		WebElement Contact= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Contact us']")));
 		js.executeScript("arguments[0].scrollIntoView();",Contact);
 		
 		Contact.click();
