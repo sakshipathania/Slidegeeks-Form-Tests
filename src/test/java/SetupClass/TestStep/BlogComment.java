@@ -74,8 +74,8 @@ public class BlogComment extends Setup {
           Thread.sleep(3000);
 		
 		
-		driver.findElement(By.id("ux_txt_captcha_challenge_field")).sendKeys("Y3Tt6bfwI");
-	    Thread.sleep(1000);
+		//driver.findElement(By.id("ux_txt_captcha_challenge_field")).sendKeys("Y3Tt6bfwI");
+	        Thread.sleep(1000);
 	}
 	
 	@Then("^user enter comment on blog form$")
