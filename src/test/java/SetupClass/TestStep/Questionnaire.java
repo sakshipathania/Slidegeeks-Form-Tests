@@ -115,8 +115,8 @@ public class Questionnaire extends Setup {
 	@Then("^user click on submit on questionnaire form$")
 	public void user_click_on_submit_on_questionnaire_form() throws Throwable {
 		Thread.sleep(1000);
-		driver.findElement(By.id("save")).submit();
-		Thread.sleep(1000);
+		WebElement submit= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='save']")));
+		submit.click();
 		System.out.print("form is submitted at:->> ");
 	    //System.out.println(System.currentTimeMillis()/1000);
 		SimpleDateFormat formatter= new SimpleDateFormat("dd-MM-yyyy 'at' HH:mm:ss z"); 
@@ -125,6 +125,7 @@ public class Questionnaire extends Setup {
 	    System.out.println(Button_Click_Time); 
 		
 	//verify the message 
+		Thread.sleep(3000);
 		String verifySuccessfullMessage = wait
 				.until(ExpectedConditions.elementToBeClickable(
 						By.xpath("//h4[contains(text(),'Thank You for submitting your request to SlideGeek')]")))
