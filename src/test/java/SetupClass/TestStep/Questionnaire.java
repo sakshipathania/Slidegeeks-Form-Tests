@@ -51,28 +51,28 @@ public class Questionnaire extends Setup {
 	@Then("^user enter name on questionnaire form$")
 	public void user_enter_name_on_questionnaire_form() throws Throwable {
 		Thread.sleep(1000);
-		driver.findElement(By.name("name")).sendKeys("SlideGeeks Testing");
+		driver.findElement(By.xpath("//input[@id='name']")).sendKeys("SlideGeeks Testing");
 		Thread.sleep(1000);
 	}
 
 	@Then("^user enter email on questionnaire form$")
 	public void user_enter_email_on_questionnaire_form() throws Throwable {
 		Thread.sleep(1000);
-		driver.findElement(By.name("email")).sendKeys("slidetech.qa@gmail.com");
+		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("slidetech.qa@gmail.com");
 		Thread.sleep(1000);
 	}
 
 	@Then("^user enter phone on questionnaire form$")
 	public void user_enter_phone_on_questionnaire_form() throws Throwable {
 		Thread.sleep(1000);
-		driver.findElement(By.name("phone")).sendKeys("852364598");
+		driver.findElement(By.xpath("//input[@id='phone']")).sendKeys("852364598");
 		Thread.sleep(1000);
 	}
 
 	@Then("^user enter number of slides on questionnaire form$")
 	public void user_enter_number_of_slides_on_questionnaire_form() throws Throwable {
 		Thread.sleep(1000);
-		driver.findElement(By.id("num_slides")).sendKeys("8");
+		driver.findElement(By.xpath("//input[@id='num_slides']")).sendKeys("8");
 		Thread.sleep(1000);
 	}
 
@@ -93,7 +93,7 @@ public class Questionnaire extends Setup {
 	@Then("^User click on Upload button")
 	public void User_click_on_Upload_button() throws Throwable {
 		Thread.sleep(6000);
-	        WebElement Upload= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Upload']")));
+	        WebElement Upload= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='dz-default dz-message']")));
 		Thread.sleep(2000);
 		Upload.click();
 		Thread.sleep(3000);
